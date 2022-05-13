@@ -1,0 +1,103 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 4 ====================
+#include<stdio.h>
+
+int main ()
+{
+    int valor;
+    int *p1;
+    float temp;
+    float *p2;//PONTEIRO PARA FLOAT
+    char aux;
+    char *nome = "Ponteiros";//PONTEIRO PARA CHAR
+    char *p3;//PONTEIRO PARA CHAR
+    int idade;
+    int vetor[3];//VETOR COM 3 POSIÇÕES
+    int *p4;//PONTEIRO PARA INT
+    int *p5;//PONTEIRO PARA INT
+
+    /* (a) */
+    valor = 10;//ATRIBUI A VALOR 10
+    p1 = &valor;//PASSA A REFERENCIA DE VALOR PARA O PONTEIRO P1
+    *p1 = 20;//MUDAR O CONTEUDO DE VALOR PARA 20
+    printf("%d \n", valor);//IMPRIME 20
+
+    /* (b) */
+    temp = 26.5;//ATRIBUI A TEMP 26.5
+    p2 = &temp;//PASSA A REFERENCIA DE TEMP PARA O PONTEIRO P2
+    *p2 = 29.0;//ALTERA A VALOR DE TEMP PARA 29.0
+    printf("%.1f \n", temp);//IMPRIME 29.0
+
+    /* (c) */
+    p3 = &nome[0];//PASSA A REFERENCIA DO PRIMEIRO ELEMENTO DO VETOR NOME
+    aux = *p3;//ATRIBUI A AUX O CONTEÚDO DA REFERENCIA DO PRIMERO ELEMENTO DO VETOR NOME, ISTO É P
+    printf("%c \n", aux);//IMPRIME O VALOR DE AUX, P
+
+    /* (d) */
+    p3 = &nome[4];//ATRIBUI A P3 A REFERENCIA DO ELEMENTO 4 DO VETOR NOME
+    aux = *p3;//ATRIBUI A AUX O CONTEÚDO DO ENDEREÇO ANTERIORMENE ATRIBUIDO A P3, ISTO É e
+    printf("%c \n", aux);//IMPRIME O VALOR DE AUX, e
+
+    /* (e) */
+    p3 = nome;//passa a p3 a referencia do primeiro elemento do vetor nome
+    printf("%c \n", *p3);//imprime o conteudo da referencia anteior, P
+
+    /* (f) */
+    p3 = p3 +4;//A REFERENCIA ATRIBUIDA A p3 MUDA À REFERENCIA EM 4 BYTES
+    printf("%c \n", *p3);//p3 APONTA ANTERIORMENTE PARA nome[0], AGORA APONTA nome[4], logo imprime e
+
+    /* (g) */
+    p3--;//O EDENREÇO DECREMETA EM 1 BYTE
+    printf("%c \n", *p3);//p3 aponta para nome[3], logo imprime t
+
+     /* (h) */
+    vetor[0] = 31;
+    vetor[1] = 45;
+    vetor[2] = 27;
+    p4 = vetor;//ATRIBUI AO PONTEIRO p4 o endereço de vetor[0];
+    idade = *p4;//ATRIBUI A IDADE O CONTEÚDO DE vetor[0], 31
+    printf("%d \n", idade);//MOSTRA 31
+
+    /* (i) */
+    p5 = p4 +1;//p5 IRÁ APONTAR PARA A REFERENCIA 4 BYTES DO ENDEREÇO DE p4, ou vetor[1]
+    idade = *p5;//A IDADE É ATRIBUIDO O VALOR DO CONTEÚDO QUE p5 aponta, ou 45
+    printf("%d \n", idade);//mostra 45
+
+    /* (j) */
+    p4 = p5 +1;//a p4 atribui a referência 4 BYTES de p5, ou vetor[2]
+    idade = *p4;//atribui a idade o conteúdo do vetor[2]
+    printf("%d \n", idade);//mostra 27
+
+     /* (l) */
+    p4 = p4 -2;//p4  APONTA PARA UMA REFERENCIA -8bytes da atual, vetor[0]
+    idade = *p4;//atribui a idade o conteúdo de vetor[0]
+    printf("%d \n", idade);//mostra 31
+
+    /* (m) */
+    p5 = &vetor[2] - 1;//A p5 passa a refereência do vetor 2 menos 4 bytes, ou vetor[1]
+    printf("%d \n", *p5);//mostra 45
+
+    /* (n) */
+    p5++;//a p5 atribui o endenreço atual mais 4 bytes, ou vetor[2]
+    printf("%d \n", *p5);//mostra 27
+
+    return(0);
+}
+
+/*ENTÃO O QUE FICA MOSTRADO NA TELA:
+20
+29.0
+P
+e
+P
+e
+t
+31
+45
+27
+31
+45
+27
+*/
+

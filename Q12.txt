@@ -1,0 +1,60 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 12 ====================
+Ponteiro para função funcionam como ponteiros normais mas apontam para funções, isto é, funções, assim como variáveis, são referenciáveis a um endereço na memória, a declaração é
+
+tipofsaida (*ptr)(tipofentrada1 , tipofentrada2) = &função;
+result = *ptr(10,20);//se a função q ptr aponta retorna algo, vai ser copiado para result
+OU
+tipofsaida (*ptr)(tipofentrada1 , tipofentrada2) = função;//sem a necessidade do operador &, funciona como vetor
+MAS
+result = ptr(10,20);//NESSE CASO SEM O *
+OU
+tipofsaida (*ptr)(tipofentrada1 , tipofentrada2) ;
+ptr = &função;
+result = *ptr(10,20);
+
+O poteiro funciona como um intermediário da chamada da função:
+
+result = *ptr(10,20);//se a função q ptr aponta retorna algo, vai ser copiado para result
+
+EXEMPLO DE APLICAÇÃO
+
+#include<stdio.h>
+//programa pedi pro usuário digitar 5 números, e então permite que ele possa trocar a posição de dois números
+void troca(int *x, int *y)
+{
+    int temp= *x;
+    *x=*y;
+    *y=temp;
+}
+int main()
+{
+    int a[5];
+    int i,m,n;
+    int *p=a;
+    void (*ptr)(int*, int*)= troca;
+
+    printf("Insira 5 valores:\n");
+    for(i=0;i<5;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    printf("A posição/números digitados foram:\n");
+    for(i=0;i<5;i++)
+    {
+        printf("%d-%d\n",i,a[i]);
+    }
+    printf("Digite as posições que deseja trocar o valor:\n");
+    scanf("%d\n%d",&m,&n);
+    (*ptr)(p+m,p+n);
+
+    printf("Com a mudança, posição/números digitados foram:\n");
+    for(i=0;i<5;i++)
+    {
+        printf("%d-%d\n",i,a[i]);
+    }
+
+ return 0;
+}
+

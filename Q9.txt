@@ -1,0 +1,9 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 9 ====================
+Se x for do tipo char, x+1, x+2 e x+3 assumem respectivamente: 4093, 4094, 4095.
+Se x for do tipo int, x+1, x+2 e x+3 assumem respectivamente: 4094, 4096, 4098.
+Se x for do tipo float, x+1, x+2 e x+3 assumem respectivamente: 4096, 4100, 4104;
+Se x for do tipo double, x+1, x+2 e x+3 assumem respectivamente: 4100, 4108, 4116.
+
+

@@ -1,0 +1,7 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 3 ====================
+p = i;// Ilegal, pois está passando o valor de i, um valor inteiro que será convertido em uma referência de memória não especificada a variável e atribuída a p.
+i = (*&)j;// Ilegal
+q = *p;//Ilegal, passando o conteúdo da referencia de p, que não é um endereço
+

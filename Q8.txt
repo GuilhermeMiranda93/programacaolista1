@@ -1,0 +1,6 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 8 ====================
+O primeiro programa imprime o conteúdo das 3 posições de um vetor, ou mostra na tela “4 9 13 ”.
+O segundo programa imprime em uma linha o endereço associado a cada uma das 3 posições de vet.
+

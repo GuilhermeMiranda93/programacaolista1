@@ -1,0 +1,7 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 1 ====================
+p == &i; //O conteúdo de p é o endereço de i, logo expressão tem valor igual a 1 ou Verdadeiro;
+*p - *q;//O conteúdo do que ‘p’ e ‘q’ aponta tem valor 3 e 5 respectivamente, logo a expressão tem valor igual a -2;
+**&p;// Obtém o endereço de ‘p’; e obtém o conteúdo de ‘p’=>obtém-se o endereço de i; e então obtém o conteúdo do endereço de ‘i’ ou o valor declarado a ‘i’, logo o valor da expressão é 3;
+3 - *p/(*q) + 7;//O conteúdo de *p e *q, respectivamente, é ‘3’ e ‘5’, a expressão fica: 3 – 3/5 + 7, mas como 3 e 5 não são do tipo ponto flutuante, mas sim inteiros, então a expressão tem valor igual a 3 - (0) +7, logo igual a 10;

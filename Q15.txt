@@ -1,0 +1,59 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 15 ====================
+#include<stdio.h>
+#include<stdlib.h>
+
+int compare (float a, float b)
+{
+    if(a<b) return 1;//os dois números da sequencia são comparados, e se dado elemento for menor do q o sebsequente retorna 1, e assim realizar a permuta como na questão 13 
+    return -1;
+}
+
+void Fsort(float *Pnumero,int Qnumero, int (*compare)(float, float))//int (*compare)(float, float) é usado para apontar para a função compare
+{
+    int i, j;
+    float temp;
+    for(i=0;i<Qnumero;i++)
+    {
+        for(j=0;j<Qnumero;j++)
+        {/*As próximas linhas irão permitir a comparação entre os números da sequência fornecida, realizando permutas entre
+            os valores das posições de maneira a resultar numa sequencia crescente*/
+            if(compare(Pnumero[i],Pnumero[j])>0)//diferente da questão 13, o processo de comparação ocorre na função compare, que recebe como argumento dois números ordenados da sequencia
+            {
+                temp = Pnumero[i];
+                Pnumero[i] = Pnumero[j];
+                Pnumero[j] =  temp;
+            }
+
+        if(Pnumero[i]==Pnumero[j]) continue;
+        }
+    }
+}
+
+int main ()
+{
+    int Qnumero, i,j;
+    float *Pnumero;
+    float temp;
+
+    printf("Digite a quantidade de números:\n");
+    scanf("%d", &Qnumero);
+
+    Pnumero = malloc(Qnumero*sizeof(float));
+
+    printf("Digite os %d números:\n", Qnumero);
+    for(i=0;i<Qnumero;i++)
+    {
+        scanf("%f", &Pnumero[i]);
+    }
+
+    Fsort(Pnumero,Qnumero,compare);//Fsort cumpre a função da Qsort. Passa um ponteiro para um array de floats, a quantidade de elementos desse array e uma função secundária
+
+    for(i=0;i<Qnumero;i++)
+    {
+        printf("%f ", Pnumero[i]);
+    }
+
+    return 0;
+}

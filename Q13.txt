@@ -1,0 +1,44 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 13 ====================
+#include<stdio.h>
+#include<stdlib.h>
+
+int main ()
+{
+    int Qnumero, i,j;
+    float *Pnumero;
+    float temp;
+
+    printf("Digite a quantidade de números:\n");
+    scanf("%d", &Qnumero);
+
+    Pnumero = malloc(Qnumero*sizeof(float));
+
+    printf("Digite os %d números:\n", Qnumero);
+    for(i=0;i<Qnumero;i++)
+    {
+        scanf("%f", &Pnumero[i]);
+    }
+
+    for(i=0;i<Qnumero;i++)
+    {
+        for(j=0;j<Qnumero;j++)
+        {/*As próximas linhas irão permitir a comparação entre os números da sequência fornecida, realizando permutas entre
+            os valores das posições de maneira a resultar numa sequencia crescente*/
+            if(Pnumero[i]<Pnumero[j])
+            {
+                temp = Pnumero[i];
+                Pnumero[i] = Pnumero[j];
+                Pnumero[j] =  temp;
+            }
+
+            if(Pnumero[i]==Pnumero[j]) continue;}
+    }
+    for(i=0;i<Qnumero;i++)
+    {
+        printf("%f ", Pnumero[i]);
+    }
+
+    return 0;
+}

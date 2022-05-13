@@ -1,0 +1,25 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 5 ====================
+#include<stdio.h>
+
+int main ()
+{
+    float vet[5] = {1.1,2.2,3.3,4.4,5.5};//UM VETOR COM 5 POSIÇÕES ATRIBUIDAS
+    float *f;//PONTEIRO PARA FLOAT
+    int i;
+    f = vet;//f aponta para vet[0]
+    printf("contador/valor/valor/endereco/endereco");
+
+    //imprime 4 linhas e em cada uma mostra:
+    for(i = 0 ; i <= 4 ; i++)
+    {
+        printf("\ni = %d ",i);// O número da linha;
+        printf("vet[%d] = %.1f ",i, vet[i]);//O valor de vet[linha],onde linha é o número da linha;
+        printf("*(f + %d) = %.1f ",i, *(f+i));//O valor de vet[linha],onde linha é o número da linha;
+        printf("&vet[%d] = %X ",i, &vet[i]);//O endereço de vet[linha] onde linha é o número da linha;
+        printf("(f + %d) = %X ",i, f+i);//O endereço que f aponta, tal que para cada linha o endereço é referente a vet[linha];
+    }
+
+    return(0);
+}

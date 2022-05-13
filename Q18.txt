@@ -1,0 +1,114 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 18 ====================
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+void multmatriz(int **a,int **b,int **c,int la,int ca,int cb)
+{
+    int i,j,k;
+
+    //código irá realizar a multiplicação e soma entre a e b e atribuir a c
+    for(i=0;i<la;i++)
+    {
+        for(j=0;j<cb;j++)
+        {
+            for(k=0;k<ca;k++)
+            {
+                c[i][j]+=a[i][k]*b[k][j];
+            }
+        }
+    }
+}
+
+int main ()
+{
+    int lA,lB,cB;
+    int **matrizA,**matrizB,**matrizC;
+    int i,j;
+
+    printf("Insira a quantidade de linhas da matriz A:\n");
+    scanf("%d",&lA);
+    printf("Insira a quantidade de linhas da matriz B:\n");
+    scanf("%d",&lB);
+    printf("Insira a quantidade de colunas da matriz B:\n");
+    scanf("%d",&cB);
+
+    //alocação dinâmica para as três matrizes
+    matrizA=malloc(lA*sizeof(int*));
+    matrizA[0]=malloc(lA*lB*sizeof(int));
+    for(i=1;i<lA;i++)
+    {
+       matrizA[i]= matrizA[i-1]+lB;
+    }
+
+    matrizB=malloc(lB*sizeof(int*));
+    matrizB[0]=malloc(lB*cB*sizeof(int));
+    for(i=1;i<lB;i++)
+    {
+       matrizB[i]= matrizB[i-1]+cB;
+    }
+    matrizC=malloc(lA*sizeof(int*));
+    matrizC[0]=calloc(lA*cB,sizeof(int));
+    for(i=1;i<lA;i++)
+    {
+       matrizC[i] = matrizC[i-1]+cB;
+    }
+
+    //atribuição de valores aleatores para a matriz A e B
+    srand((unsigned)time(NULL));
+    for(i=0;i<lA;i++)
+    {
+        for(j=0;j<lB;j++)
+        {
+            matrizA[i][j]= (rand()%201)-100;
+        }
+    }
+    printf("MATRIZ A: \n");
+    for(i=0;i<lA;i++)
+    {
+        for(j=0;j<lB;j++)
+        {
+            printf("%d ", matrizA[i][j]);
+        }
+        printf("\n");
+    }
+    for(i=0;i<lB;i++)
+    {
+        for(j=0;j<cB;j++)
+        {
+            matrizB[i][j]= (rand()%201)-100;
+        }
+    }
+    printf("MATRIZ B: \n");
+    for(i=0;i<lB;i++)
+    {
+        for(j=0;j<cB;j++)
+        {
+            printf("%d ", matrizB[i][j]);
+        }
+        printf("\n");
+    }
+    //CHAMANDO A FUNÇÃO DE MULTIPLICAÇÃO
+    multmatriz(matrizA,matrizB,matrizC,lA,lB,cB);
+
+    printf("MATRIZ C: \n");
+    for(i=0;i<lA;i++)
+    {
+        for(j=0;j<cB;j++)
+        {
+            printf("%d ", matrizC[i][j]);
+        }
+        printf("\n");
+    }
+
+    free(matrizA[0]);
+    free(matrizB[0]);
+    free(matrizC[0]);
+    free(matrizB);
+    free(matrizA);
+    free(matrizC);
+
+    return 0;
+}

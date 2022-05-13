@@ -1,0 +1,46 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 10 ====================
+#include<stdio.h>
+
+int main()
+{
+    char x[4], *p;
+    int i;
+
+    printf("PARA TIPO CHAR DE 1 BYTE\n&x=%p\n", &x);
+    for(i=1;i<4;i++)
+    {
+        p = &x[i];
+        printf("&[x+%d]=%p\n",i, p);
+    }
+
+    short int y[4], *q;
+
+    printf("\nPARA TIPO int DE %hi BYTES\n&x=%p\n", sizeof(short int),y);
+    for(i=1;i<4;i++)
+    {
+        q = &y[i];
+        printf("&[x+%d]=%p\n",i, q);
+    }
+
+    float z[4], *o;
+    printf("\nPARA TIPO float DE %d BYTES\n&x=%p\n",sizeof(float), &z);
+    for(i=1;i<4;i++)
+    {
+        o = &z[i];
+        printf("&[x+%d]=%p\n",i, o);
+    }
+
+    double k[4], *m;
+    printf("\nPARA TIPO double DE %d BYTES\n&x=%p\n",sizeof(double), &k);
+    for(i=1;i<4;i++)
+    {
+        m = &k[i];
+        printf("&[x+%d]=%p\n",i, m);
+    }
+
+ return 0;
+}
+
+

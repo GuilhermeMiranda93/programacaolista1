@@ -1,0 +1,36 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 14 ====================
+#include<stdio.h>
+#include<stdlib.h>
+
+int comparefloat (const void * a, const void * b)//função chamada por qsort para comparar dois números
+{//type casting a e b para ponteiros para float, em seguida realizando operações relacionais entre os valores dos endereços atribuidos eles e retornando valores para qsort
+  if ( *(float*)a <  *(float*)b ) return -1;
+  if ( *(float*)a == *(float*)b ) return 0;
+  if ( *(float*)a >  *(float*)b ) return 1;
+}
+int main ()
+{
+    int numlist,i;//dois inteiros, o primeiro irá receber a quantidade de números da sequencia e o segundo será usado em um for
+    float *ptnum;//ponteiro para receber o endereço de uma alocação dinâmica
+
+    printf("Insira a quantidade de números:\n");//pede para o usário digitar a quantidade de números da sequencia
+    scanf("%d", &numlist);//atribui a uma variável a quantidade de números da sequencia
+
+    ptnum = malloc(numlist*sizeof(float));//realizar uma alocação dinâmica dependendo da quantidade de elementos da sequencia e atribui o endereço ptnum
+
+    printf("Insira os %d numeros:\n");//pede para o usuário inserir os números da sequencia
+    for(i=0;i<numlist; i++)//laço usado para receber os numlist elementos da sequencia
+    {
+        scanf("%f", &ptnum[i]);//cada elemento digitado será atribuido a um endereço alocado dinamicamente e atribuido inicialmente a ptnum
+    }
+
+     qsort (ptnum, numlist, sizeof(float), comparefloat);//chama a função qsort e passa como argumento o ponteiro que armazena o endereço do bloco alocado, a quantidade de elementos, o tipo de dado do bloco, e uma função q irá realizar operações com os elementos da sequencia
+     for (i=0; i<numlist; i++)//qsort ja reorganizou os dados em ordem crescente no bloco ptnum, então imprime esses valores nessa ordem
+     {
+         printf ("%f ", ptnum[i]);
+     }
+
+return 0;
+}

@@ -1,0 +1,10 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 2 ====================
+•	Imprimir o conteúdo de p, é imprimir o endereço que p aponta, e x é p;
+•	Em *p+2, obtém-se o conteúdo do que p aponta, logo 5, então soma 5 com 2, então imprime 7;
+•	Em **&p, obtém-se o conteúdo do que p aponta, isto é o endereço de i, então mostra o conteúdo do endereço de i, e então imprimi 5;
+•	Em 3**p, obtém-se por *p 5, e então a expressão fica 3*5, logo imprimi 15;
+•	Em **&p+4, **&p retorna 5, então a expressão resultante é 5+4, logo imprimir 9;
+Assim o que será impresso na tela será:
+4094 7 5 15 9

@@ -1,0 +1,156 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 16 ====================
+QUESTÃO 16-13
+----------------------------------
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+//QUESTÃO 16-13
+
+int main ()
+{
+    int Qnumero=100000, i,j;
+    float *Pnumero;
+    float temp;
+
+    clock_t t;
+
+    Pnumero = malloc(Qnumero*sizeof(float));
+    if(Pnumero==NULL)
+    {
+        printf("erro");
+    }
+    srand(time(NULL));
+    for(i=0;i<Qnumero;i++)
+    {
+
+        Pnumero[i] = rand()%Qnumero;
+
+    }
+
+    t = clock();
+    for(i=0;i<Qnumero;i++)
+    {
+        for(j=0;j<Qnumero;j++)
+        {/*As próximas linhas irão permitir a comparação entre os números da sequência fornecida, realizando permutas entre
+            os valores das posições de maneira a resultar numa sequencia crescente*/
+            if(Pnumero[i]<Pnumero[j])
+            {
+                temp = Pnumero[i];
+                Pnumero[i] = Pnumero[j];
+                Pnumero[j] =  temp;
+            }
+
+            if(Pnumero[i]==Pnumero[j]) continue;}
+    }
+    t = clock() - t;
+    printf("Tempo de execucao milisegundos: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+    
+    free(Pnumero);
+
+    return 0;
+}
+
+----------------------------------
+QUESTÃO 16 -14
+----------------------------------
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+//QUESTÃO 16-14
+
+int comparefloat (const void * a, const void * b)//função chamada por qsort para comparar dois números
+{//type casting a e b para ponteiros para float, em seguida realizando operações relacionais entre os valores dos endereços atribuidos eles e retornando valores para qsort
+  if ( *(float*)a <  *(float*)b ) return -1;
+  if ( *(float*)a == *(float*)b ) return 0;
+  if ( *(float*)a >  *(float*)b ) return 1;
+}
+int main ()
+{
+    int numlist=100000,i;//dois inteiros, o primeiro irá receber a quantidade de números da sequencia e o segundo será usado em um for
+    float *ptnum;//ponteiro para receber o endereço de uma alocação dinâmica
+    clock_t t;
+
+    ptnum = malloc(numlist*sizeof(float));//realizar uma alocação dinâmica dependendo da quantidade de elementos da sequencia e atribui o endereço ptnum
+
+    srand(time(NULL));
+    for(i=0;i<numlist;i++)
+    {
+
+        ptnum[i] = rand()%numlist;
+
+    }
+    t = clock();
+    qsort (ptnum, numlist, sizeof(float), comparefloat);//chama a função qsort e passa como argumento o ponteiro que armazena o endereço do bloco alocado, a quantidade de elementos, o tipo de dado do bloco, e uma função q irá realizar operações com os elementos da sequencia
+    t = clock() - t;
+    printf("Tempo de execucao milisegundos: %lf\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+    
+    free(ptnum);
+
+return 0;
+}
+----------------------------------
+QUESTÃO 16-15
+----------------------------------
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+//QUESTÃO 16-15
+
+int compare (float a, float b)
+{
+    if(a<b) return 1;//os dois números da sequencia são comparados, e se dado elemento for menor do q o sebsequente retorna 1, e assim realizar a permuta como na questão 13
+    return -1;
+}
+
+void Fsort(float *Pnumero,int Qnumero, int (*compare)(float, float))//int (*compare)(float, float) é usado para apontar para a função compare
+{
+    int i, j;
+    float temp;
+    for(i=0;i<Qnumero;i++)
+    {
+        for(j=0;j<Qnumero;j++)
+        {/*As próximas linhas irão permitir a comparação entre os números da sequência fornecida, realizando permutas entre
+            os valores das posições de maneira a resultar numa sequencia crescente*/
+            if(compare(Pnumero[i],Pnumero[j])>0)//diferente da questão 13, o processo de comparação ocorre na função compare, que recebe como argumento dois números ordenados da sequencia
+            {
+                temp = Pnumero[i];
+                Pnumero[i] = Pnumero[j];
+                Pnumero[j] =  temp;
+            }
+
+        if(Pnumero[i]==Pnumero[j]) continue;
+        }
+    }
+}
+
+int main ()
+{
+    int Qnumero=100000, i,j;
+    float *Pnumero;
+    float temp;
+    clock_t t;
+
+    Pnumero = malloc(Qnumero*sizeof(float));
+
+    for(i=0;i<Qnumero;i++)
+    {
+        Pnumero[i] = rand()%Qnumero;
+
+    }
+    t = clock();
+    Fsort(Pnumero,Qnumero,compare);//Fsort cumpre a função da Qsort. Passa um ponteiro para um array de floats, a quantidade de elementos desse array e uma função secundária
+    t = clock() - t;
+    printf("Tempo de execucao milisegundos: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+    free(Pnumero);
+    return 0;
+}
+----------------------------------
+QUESTÃO 16 FINAL
+----------------------------------
+Para organizar em ordem crescente um array de 100000 elementos os resultados obtidos indicaram que os tempos de execução foram:
+Questão 13 : 90.795 ms.
+Questão 14: 31 ms.
+Questão 15: 144.579 ms.
+O programa usando a função Qsort obteve o melhor resultado dentre os três programas desenvolvidos.

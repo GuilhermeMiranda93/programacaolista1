@@ -1,0 +1,11 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 11 ====================
+aloha[2] = value;//válida, pois atribui 2.2 em aloha[2] .
+scanf("%f", &aloha);//válido, pois lê um valor do teclado e o associa a aloha[0].
+aloha = value;//inválido, é necessário indicar a posição a ser atribuído um valor no vetor.
+printf("%f", aloha);//Inválido, é necessário indicar qual posição do vetor irá ser impressa.
+coisas[4][4] = aloha[3];//Válido, atribui a coisas[4][4] o valor de aloha[3].
+coisas[5] = aloha;/*Inválido, é necessário indicar qual elemento de aloha irá atribuir em coisas[5].*/
+pf = value;//Inválido, é necessário usar o operador &value.
+pf = aloha;//Válido, como aloha é um vetor, não é necessário usar o operador &.

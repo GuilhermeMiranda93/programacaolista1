@@ -1,0 +1,5 @@
+=== LISTA 1 - PROGRAMAÇÃO AVANÇADA ===
+Aluno: GUILHERME GIORDAN DE SOUSA MIRANDA
+== questao 7 ====================
+p = mat + 1;//É Válido, pois mat retornar um ponteiro que aponta para o primeiro endereço do vertor mat, depois realiza operação aritmética de ponteiros e obtém-se o endereço seguinte o atribuindo ao ponteiro p;
+x = (*mat)++;//É válido, pois mat retornar um ponteiro que aponta para o primeiro endereço do vetor mat, dereferenciando obtém-se um valor armazenado nesse endereço, somando a ele mais um e depois atribuindo a uma variável do tipo inteiro.
